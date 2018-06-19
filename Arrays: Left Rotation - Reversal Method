@@ -1,0 +1,36 @@
+public class Demo
+{
+	
+	static int [] reverse(int [] a, int s, int e) {
+		while (s < e) {
+			a[s] = a[s] + a[e];
+			a[e] = a[s] - a[e];
+			a[s] = a[s] - a[e];
+			s++;
+			e--;
+		}
+		return a;
+	}
+    /*Function to left rotate arr[] of size n by d*/
+	static int [] rotateArray(int [] a, int d) {
+		int f, s;
+		f = d - 1;
+		s = d;
+		
+		reverse(a, 0, f);
+		reverse(a, s, a.length - 1);
+		reverse(a, 0, a.length - 1);
+		
+		return a;
+		
+	}
+	
+    public static void main(String [] args) {
+    	int [] array = {1, 2, 3, 4, 5, 6, 7};
+    	
+    	rotateArray(array, 2);
+    	
+    	for(int x : array)
+    		System.out.print(x + " ");
+    }
+}
